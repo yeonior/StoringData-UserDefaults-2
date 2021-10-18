@@ -100,6 +100,11 @@ class ViewController: UIViewController {
                                    sex: pickedSex)
         UserSettings.userModel = userObject
     }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        nameTextField.resignFirstResponder()
+        surnameTextField.resignFirstResponder()
+    }
 }
 
 extension ViewController: UIPickerViewDataSource, UIPickerViewDelegate {
