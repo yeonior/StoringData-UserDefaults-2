@@ -7,12 +7,12 @@
 
 import UIKit
 
-enum SexType {
+enum SexType: String {
     case male
     case female
 }
 
-class UserModel {
+class UserModel: NSObject, NSCoding {
     
     let name: String
     let surname: String
@@ -24,6 +24,21 @@ class UserModel {
         self.surname = surname
         self.city = city
         self.sex = sex
+    }
+    
+    func encode(with coder: NSCoder) {
+        coder.encode(name, forKey: "name")
+        coder.encode(surname, forKey: "surname")
+        coder.encode(city, forKey: "city")
+        coder.encode(sex.rawValue, forKey: "sex")
+    }
+    
+    required init?(coder: NSCoder) {
+        name = coder.decodeObject(forKey: "name") as? String ?? ""
+        surname = coder.decodeObject(forKey: "surname") as? String ?? ""
+        city = coder.decodeObject(forKey: "city") as? String ?? ""
+        let rawValue = coder.decodeObject(forKey: "sex") as? String ?? ""
+        sex = SexType(rawValue: rawValue) ?? SexType.male
     }
 }
 
@@ -41,9 +56,26 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        UserDefaults.standard.removeObject(forKey: "userModel")
+//        UserDefaults.standard.synchronize()
+        
         cityPickerView.delegate = self
         cityPickerView.dataSource = self
-        cityPickerView.selectRow((cities.count / 2) - 1, inComponent: 0, animated: true)
+        
+        if let model = UserSettings.userModel {
+            nameTextField.text = model.name
+            surnameTextField.text = model.surname
+            if let row = cities.firstIndex(of: model.city) {
+                cityPickerView.selectRow(row, inComponent: 0, animated: true)
+            } else {
+                cityPickerView.selectRow((cities.count / 2) - 1, inComponent: 0, animated: true)
+            }
+            if model.sex.rawValue == "male" {
+                sexSegmentedControl.selectedSegmentIndex = 0
+            } else {
+                sexSegmentedControl.selectedSegmentIndex = 1
+            }
+        }
     }
 
     @IBAction func saveButton(_ sender: Any) {
@@ -66,8 +98,7 @@ class ViewController: UIViewController {
                                    surname: surnameTrimmingText,
                                    city: pickedCity,
                                    sex: pickedSex)
-//        UserSettings.userName = nameTrimmingText
-        print(userObject)
+        UserSettings.userModel = userObject
     }
 }
 
