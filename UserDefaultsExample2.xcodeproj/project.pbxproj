@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A2047635271D784A00F2AB84 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2047634271D784A00F2AB84 /* UserSettings.swift */; };
 		A237BCD5271B552F005730E4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A237BCD4271B552F005730E4 /* AppDelegate.swift */; };
 		A237BCD7271B552F005730E4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A237BCD6271B552F005730E4 /* SceneDelegate.swift */; };
 		A237BCD9271B552F005730E4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A237BCD8271B552F005730E4 /* ViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A2047634271D784A00F2AB84 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
 		A237BCD1271B552F005730E4 /* UserDefaultsExample2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UserDefaultsExample2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A237BCD4271B552F005730E4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A237BCD6271B552F005730E4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +61,7 @@
 				A237BCD4271B552F005730E4 /* AppDelegate.swift */,
 				A237BCD6271B552F005730E4 /* SceneDelegate.swift */,
 				A237BCD8271B552F005730E4 /* ViewController.swift */,
+				A2047634271D784A00F2AB84 /* UserSettings.swift */,
 				A237BCDA271B552F005730E4 /* Main.storyboard */,
 				A237BCDD271B5530005730E4 /* Assets.xcassets */,
 				A237BCDF271B5530005730E4 /* LaunchScreen.storyboard */,
@@ -138,6 +141,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A237BCD9271B552F005730E4 /* ViewController.swift in Sources */,
+				A2047635271D784A00F2AB84 /* UserSettings.swift in Sources */,
 				A237BCD5271B552F005730E4 /* AppDelegate.swift in Sources */,
 				A237BCD7271B552F005730E4 /* SceneDelegate.swift in Sources */,
 			);

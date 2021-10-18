@@ -34,7 +34,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var cityPickerView: UIPickerView!
     @IBOutlet weak var sexSegmentedControl: UISegmentedControl!
     
-    let cities = ["Moscow", "Prague", "Tokyo", "Los Angeles", "Toronto"]
+    let cities = ["Moscow", "Prague", "Tokyo", "Los Angeles", "Toronto", "Berlin"]
     var pickedCity: String?
     var pickedSex: SexType?
     
@@ -43,7 +43,7 @@ class ViewController: UIViewController {
         
         cityPickerView.delegate = self
         cityPickerView.dataSource = self
-        cityPickerView.selectRow(2, inComponent: 0, animated: true)
+        cityPickerView.selectRow((cities.count / 2) - 1, inComponent: 0, animated: true)
     }
 
     @IBAction func saveButton(_ sender: Any) {
@@ -66,6 +66,7 @@ class ViewController: UIViewController {
                                    surname: surnameTrimmingText,
                                    city: pickedCity,
                                    sex: pickedSex)
+//        UserSettings.userName = nameTrimmingText
         print(userObject)
     }
 }
